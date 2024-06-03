@@ -38,5 +38,20 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 
 class Solution(object):
     def twoSum(self, nums, target):
-        for i in enumerate(nums):
-            
+
+        numsDict = {}
+        for index, number in enumerate(nums):
+            numsDict[number] = index
+
+        
+        for index, number in enumerate(nums):
+            search = target - number
+
+            if search in numsDict and numsDict[search] != index:
+                print("[%d,%d]" % (index, numsDict[search]))
+                return index, numsDict[search]
+
+solution = Solution
+solution.twoSum(solution,[3,3], 6)
+# Output: "[1,2]"
+# [2,3,4]
